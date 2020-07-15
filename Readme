@@ -1,0 +1,42 @@
+def readProp;
+node {
+    stage("Git URL Repo") {
+        git url: 'https://github.com/MSURASH/App_configs.git'
+        
+    }
+    stage("Read Property File from Dev") 
+    {
+        readProp = readProperties  file: 'myapp-dev.properties'
+        def Var1= readProp['custom.val']
+        echo "Var1=${Var1}"
+        
+    }
+    stage("Read Property File from Val") 
+    {
+        readProp = readProperties  file: 'myapp-val.properties'
+        def Var1= readProp['custom.val']
+        echo "Var1=${Var1}"
+        
+    }
+    stage("Read Property File from Int") 
+    {
+        readProp = readProperties  file: 'myapp-int.properties'
+        def Var1= readProp['custom.val']
+        echo "Var1=${Var1}"
+        
+    }
+    stage("Read Property File from Prod") 
+    {
+        readProp = readProperties  file: 'myapp-prod.properties'
+        def Var1= readProp['custom.val']
+        echo "Var1=${Var1}"
+        
+    }
+     stage("Dev Deploy") 
+    {
+        
+        echo "Dev Deploy"
+        
+    }
+
+}
